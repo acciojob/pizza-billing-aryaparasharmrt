@@ -37,7 +37,7 @@ public class Pizza {
         }
     }
 
-    public void addExtraToppings(boolean isVeg){
+    public void addExtraToppings(){
         if(!toppings){
             total += isVeg? 70:120;
             System.out.println("Extra Toppings Added: " + (isVeg? 70:120));

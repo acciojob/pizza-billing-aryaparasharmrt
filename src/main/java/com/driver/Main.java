@@ -12,7 +12,7 @@ public class Main {
     Pizza p = new Pizza(false);
     System.out.println("Base Price Of The Pizza: "+p.getPrice());
     p.addExtraCheese();
-    p.addExtraToppings(false);
+    p.addExtraToppings();
 //    p.addTakeaway();
     System.out.println("Total Price: "+p.getBill());
   }
