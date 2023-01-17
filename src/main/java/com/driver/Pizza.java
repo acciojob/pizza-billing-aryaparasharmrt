@@ -1,5 +1,7 @@
 package com.driver;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Pizza {
 
     private int price;
@@ -31,7 +33,6 @@ public class Pizza {
 
     public void addExtraCheese(){
         if(!cheese) {
-            System.out.println("Extra Cheese Added: " + 80);
             this.total += 80;
             cheese = true;
         }
@@ -40,21 +41,23 @@ public class Pizza {
     public void addExtraToppings(){
         if(!toppings){
             total += isVeg? 70:120;
-            System.out.println("Extra Toppings Added: " + (isVeg? 70:120));
             toppings = true;
         }
     }
 
     public void addTakeaway(){
         if(!bag) {
-            System.out.println("Paper bag Added: " + 20);
             this.total += 20;
             bag = true;
         }
     }
 
     public String getBill(){
-        this.bill = Integer.toString(this.total);
-        return this.bill;
+        String bill = "Base Price Of The Pizza: " + (isVeg? 300: 400) + "\n"
+                + (cheese? "Extra Cheese Added: "+ 80:"") + "\n" +
+                (toppings ?"Extra Toppings Added: "+(isVeg ?70: 120) :"") +"\n"+
+                (bag ? "Paper Bag Added: "+20:"") + "\n" +
+                "Total Price: "+this.total;
+        return bill;
     }
 }
