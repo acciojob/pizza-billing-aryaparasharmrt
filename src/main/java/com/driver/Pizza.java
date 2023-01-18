@@ -7,15 +7,21 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-    private static boolean cheese;
-    private static boolean bag;
-    private  boolean toppings;
+    private boolean CheeseEx;
+    private boolean Toppings;
+    private boolean TakeAway;
+    private int total;
+    //Veg pizza base price = 300
+    //Non-veg pizza base price = 400
+    //Extra Cheese Price = 80
+    //Extra Toppings For Veg Pizza = 70
+    //Extra Toppings For Non-veg Pizza = 120
+    //Paper bag Price = 20
 
-    private int total = 0;
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        total = this.isVeg?300:400;
-
+        price = this.isVeg?300:400;
+        // your code goes here
     }
 
     public int getPrice(){
@@ -23,32 +29,37 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        if(!cheese) {
-            total += 80;
-            cheese = true;
+        // your code goes here
+        if (!CheeseEx){
+            CheeseEx = true;
+            price +=80;
         }
     }
 
     public void addExtraToppings(){
-        if(!toppings){
-            total += isVeg? 70:120;
-            toppings = true;
+        // your code goes here
+        if(!Toppings){
+            Toppings=true;
+            price += isVeg?70:120;
         }
     }
 
     public void addTakeaway(){
-        if(!bag) {
-            total += 20;
-            bag = true;
+        // your code goes here
+
+        if(!TakeAway){
+            TakeAway = true;
+            price += 20;
         }
+
     }
 
     public String getBill(){
-        String bil = "Base Price Of The Pizza: " + (isVeg? 300: 400) + "\n"
-                + (cheese? "Extra Cheese Added: "+ 80+"\n":"") +
-                (toppings ?"Extra Toppings Added: "+(isVeg ?70: 120)+"\n" :"") +
-                (bag ? "Paper Bag Added: "+20+"\n":"")  +
-                "Total Price: "+total;
-        return bil;
+        // your code goes here
+
+        bill = "Base Price Of The Pizza: "+(isVeg?300:400)+"\n"+(CheeseEx?("Extra Cheese Added: "+80+"\n"):"")+(Toppings?("Extra Toppings Added: "+(isVeg?70:120)+"\n"):"")+
+                (TakeAway?("Paperbag Added: "+20+"\n"):"")+"Total Price: "+price+"\n";
+
+        return this.bill;
     }
 }
