@@ -14,21 +14,12 @@ public class Pizza {
     private int total = 0;
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        // your code goes here
+        price = this.isVeg?300:400;
+
     }
 
     public int getPrice(){
-
-        if(isVeg) {
-            this.price = 300;
-            total += this.price;
-            return this.price;
-        }
-        else {
-            this.price = 400;
-            this.total += this.price;
-            return this.price;
-        }
+        return this.price;
     }
 
     public void addExtraCheese(){
@@ -54,9 +45,9 @@ public class Pizza {
 
     public String getBill(){
         String bill = "Base Price Of The Pizza: " + (isVeg? 300: 400) + "\n"
-                + (cheese? "Extra Cheese Added: "+ 80:"") + "\n" +
-                (toppings ?"Extra Toppings Added: "+(isVeg ?70: 120) :"") +"\n"+
-                (bag ? "Paper Bag Added: "+20:"") + "\n" +
+                + (cheese? "Extra Cheese Added: "+ 80:""+ "\n") +
+                (toppings ?"Extra Toppings Added: "+(isVeg ?70: 120) :"" + "\n") +
+                (bag ? "Paper Bag Added: "+20:"" + "\n")  +
                 "Total Price: "+this.total;
         return bill;
     }
